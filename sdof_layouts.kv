@@ -1,0 +1,380 @@
+#:kivy 2.0.0
+
+#:import Factory kivy.factory.Factory
+
+<CustomDropdown@DropDown>:
+    id: dropdown
+    on_select:
+        app.root.ids.btn.text = '{}'.format(args[1])
+        self.dismiss()
+
+    Button:
+        id: btn1
+        text: 'pin-pin'
+        size_hint_y: None
+        height: '29dp'
+        on_release:
+            dropdown.select(btn1.text)
+
+    Button:
+        id: btn2
+        text: 'fixed-pin'
+        size_hint_y: None
+        height: '29dp'
+        on_release:
+            dropdown.select(btn2.text)
+
+    Button:
+        id: btn3
+        text: 'fixed-fixed'
+        size_hint_y: None
+        height: '29dp'
+        on_release:
+            dropdown.select(btn3.text)
+
+    Button:
+        id: btn4
+        text: 'fixed-free'
+        size_hint_y: None
+        height: '29dp'
+        on_release:
+            dropdown.select(btn4.text)
+
+
+
+
+<ProgramLayout>:
+    FloatLayout:
+        pos: 0, 0
+        size: root.width, root.height
+
+        Button:
+            text: 'SAVE INPUTS'
+            font_size: 0.55 * self.height
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.94}
+            size_hint: 0.1, 0.04
+            background_color: (0, 0, 0, 0.35)
+
+        Button:
+            text: 'LOAD INPUTS'
+            font_size: 0.55 * self.height
+            color: 0,0,0,1
+            pos_hint: {'x': 0.15 , 'y': 0.94}
+            size_hint: 0.1, 0.04
+            background_color: (0, 0, 0, 0.35)
+
+        Button:
+            text: 'ANALYZE'
+            font_size: 0.55 * self.height
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.9}
+            size_hint: 0.1, 0.04
+            background_color: (0, 0, 0, 0.35)
+
+
+
+
+        Label:
+            text: 'Length'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.86}
+            size_hint: 0.12, 0.03
+            
+        TextInput:
+            id: length    
+            pos_hint: {'x': 0.15, 'y': 0.86}
+            size_hint: 0.1, 0.03
+
+        Label:
+            text: 'ft'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.255 , 'y': 0.86}
+            size_hint: 0.12, 0.03
+
+
+
+
+        Label:
+            text: 'Trib. Width'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.82}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: trib_width
+            pos_hint: {'x': 0.15, 'y': 0.82}
+            size_hint: 0.1, 0.03
+          
+        Label:
+            text: 'ft'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.255 , 'y': 0.82}
+            size_hint: 0.12, 0.03
+
+
+
+
+        Label:
+            text: 'Support Conditions'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.78}
+            size_hint: 0.12, 0.03
+
+        Button:
+            id: btn
+            text: 'Choose'
+            pos_hint: {'x': 0.15, 'y': 0.78}
+            size_hint: 0.1, None
+            on_release: Factory.CustomDropdown().open(self)
+            height: '29dp'
+
+
+
+
+        Label:
+            text: 'Total Weight'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.74}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: total_weight
+            pos_hint: {'x': 0.15, 'y': 0.74}
+            size_hint: 0.1, 0.03
+       
+        Label:
+            text: 'lbs'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.255 , 'y': 0.74}
+            size_hint: 0.12, 0.03
+
+
+        
+
+        Label:
+            text: 'MATERIAL PROPERTIES:'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.7}
+            size_hint: 0.15, 0.03
+            background_color: (0, 0, 0, 0.35)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        
+
+
+        Label:
+            text: 'Yield Strength'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.66}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: yield_strength
+            pos_hint: {'x': 0.15, 'y': 0.66}
+            size_hint: 0.1, 0.03
+       
+        Label:
+            text: 'ksi'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.255 , 'y': 0.66}
+            size_hint: 0.12, 0.03
+
+
+
+
+        Label:
+            text: 'Reduction Factor'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.62}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: reduction_factor
+            pos_hint: {'x': 0.15, 'y': 0.62}
+            size_hint: 0.1, 0.03
+
+    
+
+
+        Label:
+            text: 'Effective Fy'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.58}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: effective_fy
+            pos_hint: {'x': 0.15, 'y': 0.58}
+            size_hint: 0.1, 0.03
+       
+        Label:
+            text: 'ksi'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.255 , 'y': 0.58}
+            size_hint: 0.12, 0.03
+
+
+
+
+        Label:
+            text: 'Youngs Modulus (E)'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.54}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: youngs_modulus
+            pos_hint: {'x': 0.15, 'y': 0.54}
+            size_hint: 0.1, 0.03
+       
+        Label:
+            text: 'ksi'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.255 , 'y': 0.54}
+            size_hint: 0.12, 0.03   
+
+
+
+
+        Label:
+            text: 'SIF ='
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.5}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: sif
+            pos_hint: {'x': 0.15, 'y': 0.5}
+            size_hint: 0.1, 0.03
+
+
+
+
+        Label:
+            text: 'DIF ='
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.46}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: dif
+            pos_hint: {'x': 0.15, 'y': 0.46}
+            size_hint: 0.1, 0.03
+
+
+
+        
+        Label:
+            text: 'Damping Ratio'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.03 , 'y': 0.42}
+            size_hint: 0.12, 0.03
+
+        TextInput:
+            id: damping_ratio
+            pos_hint: {'x': 0.15, 'y': 0.42}
+            size_hint: 0.1, 0.03
+       
+        Label:
+            text: '%'
+            font_size: 0.65 * self.height
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            color: 0,0,0,1
+            pos_hint: {'x': 0.255 , 'y': 0.42}
+            size_hint: 0.12, 0.03  
+       
+   
+      
+ 
+            
+            
+
+        
+
+
+
+
+
+
+
+    
